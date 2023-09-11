@@ -1,4 +1,4 @@
-const mongoose = require('require')
+const mongoose = require('mongoose')
 const { Schema } = mongoose
 
 const Purpose = new Schema({
@@ -27,4 +27,4 @@ const Game = new Schema({
     "others": { type: String }
 })
 
-module.exports = mongoose.model('game', Game)
+module.exports = mongoose.model('Game', Game)

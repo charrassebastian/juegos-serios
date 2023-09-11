@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const Game = require('./models/Game.schema')
 const mongoose = require('mongoose')
 require('dotenv').config()
 app.use(express.json())
@@ -11,6 +12,53 @@ app.use(cors())
  */
 app.get('/api/helloWorld', (req, res) => {
     res.json({ text: 'hello world!!!' })
+})
+
+/**
+ * Endpoint for adding a game to the database
+ */
+app.post('/api/game', async (req, res) => {
+    try {
+        const game = new Game(req.body.game)
+        console.log('saving the following game')
+        console.log(req.body.game)
+        const savedGame = await game.save()
+        if (savedGame) {
+            console.log('saved')
+            res.json({ status: 'ok' })
+        } else {
+            const error = 'the game could not be saved'
+            console.log('error: ' + error)
+            res.json({ status: 'error', error})
+        }
+    } catch (error) {
+        console.log('error')
+        console.log(error)
+        res.json({ status: 'error', error })
+    }
+})
+
+/**
+ * Example endpoint for retrieving the saved games
+ */
+app.get('/api/games', async (req, res) => {
+    try {
+        const games = await Game.find()
+        if (games) {
+            console.log('these are the saved games')
+            console.log(games)
+            console.log('saved')
+            res.json({ status: 'ok', games })
+        } else {
+            const error = 'the games could not be retrieved'
+            console.log('error: ' + error)
+            res.json({ status: 'error', error})
+        }
+    } catch (error) {
+        console.log('error')
+        console.log(error)
+        res.json({ status: 'error', error })
+    }
 })
 
 /**
