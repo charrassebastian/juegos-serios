@@ -101,6 +101,27 @@ app.get('/api/game', async (req, res) => {
     }
 })
 
+/**
+ * Endpoint for deleting a game given its id
+ */
+app.delete('/api/game', async (req, res) => {
+    try {
+        const game = await Game.findOneAndDelete({ _id: req.query.id })
+        if (game) {
+            console.log('deleted the following game')
+            console.log(game)
+            res.json({ status: 'ok' })
+        } else {
+            const error = "game with the id " + req.query.id + " not found"
+            console.log(error)
+            res.json({ status: 'error', error })
+        }
+    } catch (error) {
+        console.log('error')
+        console.log(error)
+        res.json({ status: 'error', error })
+    }
+})
 
 /**
  * Function for establishing the connection to the database. The parameters come from a .env file
