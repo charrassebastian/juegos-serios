@@ -13,7 +13,7 @@ const Scope = new Schema({
 })
 
 const Game = new Schema({
-    "name": { type: String, require: true },
+    "name": { type: String, require: true, unique: true },
     "area": [String],
     "purpose": Purpose,
     "scope": Scope,

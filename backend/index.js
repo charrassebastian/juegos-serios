@@ -8,13 +8,6 @@ app.use(express.json())
 app.use(cors())
 
 /**
- * Example GET endpoint
- */
-app.get('/api/helloWorld', (req, res) => {
-    res.json({ text: 'hello world!!!' })
-})
-
-/**
  * Endpoint for adding a game to the database
  */
 app.post('/api/game', async (req, res) => {
@@ -29,7 +22,7 @@ app.post('/api/game', async (req, res) => {
         } else {
             const error = 'the game could not be saved'
             console.log('error: ' + error)
-            res.json({ status: 'error', error})
+            res.json({ status: 'error', error })
         }
     } catch (error) {
         console.log('error')
@@ -52,7 +45,7 @@ app.get('/api/games', async (req, res) => {
         } else {
             const error = 'the games could not be retrieved'
             console.log('error: ' + error)
-            res.json({ status: 'error', error})
+            res.json({ status: 'error', error })
         }
     } catch (error) {
         console.log('error')
@@ -69,8 +62,15 @@ const run = async () => {
     const password = process.env.DB_PASSWORD
     const ip = process.env.DB_IP
     const port = process.env.DB_PORT
-    const uri = `mongodb://${user}:${password}@${ip}:${port}`
-    await mongoose.connect(uri)
+    const dbName = process.env.DB_NAME
+    const uri = `mongodb://${ip}:${port}/${dbName}`
+    await mongoose.connect(uri, {
+        authSource: "admin",
+        user,
+        pass: password,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     mongoose.connection.once('open', () => {
         console.log('MongoDB successfully connected to ' + uri)
     })
