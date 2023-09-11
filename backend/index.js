@@ -32,6 +32,28 @@ app.post('/api/game', async (req, res) => {
 })
 
 /**
+ * Endpoint for editing a game given its id
+ */
+app.put('/api/game', async (req, res) => {
+    try {
+        const game = await Game.findOneAndUpdate({ _id: req.query.id }, req.body.game)
+        if (game) {
+            console.log('updated the following game')
+            console.log(game)
+            res.json({ status: 'ok' })
+        } else {
+            const error = "game with the id " + req.query.id + " not found"
+            console.log(error)
+            res.json({ status: 'error', error })
+        }
+    } catch (error) {
+        console.log('error')
+        console.log(error)
+        res.json({ status: 'error', error })
+    }
+})
+
+/**
  * Endpoint for retrieving the saved games
  */
 app.get('/api/games', async (req, res) => {
