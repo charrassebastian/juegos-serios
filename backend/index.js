@@ -21,16 +21,17 @@ const run = async () => {
     const password = process.env.DB_PASSWORD
     const ip = process.env.DB_IP
     const port = process.env.DB_PORT
-    const uri = `mongodb://${user}:${password}+${ip}:${port}`
+    const uri = `mongodb://${user}:${password}@${ip}:${port}`
     await mongoose.connect(uri)
     mongoose.connection.once('open', () => {
         console.log('MongoDB successfully connected to ' + uri)
     })
 }
+
 if (require.main === module) {
     const port = process.env.NODE_PORT ?? 8080
-    // TODO: connect to the database
-    // run()
+    // now it must connect to the database
+    run()
     app.listen(port, () => console.log('Listening on port ' + port))
 }
 module.exports.app = app
