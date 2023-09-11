@@ -32,7 +32,7 @@ app.post('/api/game', async (req, res) => {
 })
 
 /**
- * Example endpoint for retrieving the saved games
+ * Endpoint for retrieving the saved games
  */
 app.get('/api/games', async (req, res) => {
     try {
@@ -53,6 +53,32 @@ app.get('/api/games', async (req, res) => {
         res.json({ status: 'error', error })
     }
 })
+
+/**
+ * Endpoint for retrieving a game by its ID
+ */
+app.get('/api/game', async (req, res) => {
+    try {
+        const filter = { _id: req.query.id }
+        console.log('finding a game with the following filter')
+        console.log(filter)
+        const game = await Game.findOne(filter)
+        if (game) {
+            console.log('these is the found game')
+            console.log(game)
+            res.json({ status: 'ok', game })
+        } else {
+            const error = 'the game could not be found'
+            console.log('error: ' + error)
+            res.json({ status: 'error', error })
+        }
+    } catch (error) {
+        console.log('error')
+        console.log(error)
+        res.json({ status: 'error', error })
+    }
+})
+
 
 /**
  * Function for establishing the connection to the database. The parameters come from a .env file
