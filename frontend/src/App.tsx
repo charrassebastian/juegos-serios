@@ -1,11 +1,9 @@
 import './App.css'
-import { GameList } from './GameList/GameList';
-import { games } from './exampleGames'
-
+import { Home } from './Home/Home'
 function App() {
   return (
     <>
-      <GameList games={games} />
+      <Home />
     </>
   )
 }
