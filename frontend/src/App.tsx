@@ -1,11 +1,11 @@
 import './App.css'
-import GameCard from './GameCard/GameCard';
-import { game } from './exampleGame'
+import { GameList } from './GameList/GameList';
+import { games } from './exampleGames'
 
 function App() {
   return (
     <>
-      <GameCard game={game} />
+      <GameList games={games} />
     </>
   )
 }
