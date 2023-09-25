@@ -1,5 +1,5 @@
 import './App.css'
-import { GameList } from './GameList/GameList';
+import { WelcomeScreen } from './WelcomeScreen/WelcomeScreen'
 
 /**
  * TANSTACK CONNECTION TO THE BACKEND FROM THE FRONTEND
@@ -14,8 +14,8 @@ const queryClient = new QueryClient()
 function App() {
 
   return (
-        <QueryClientProvider client={queryClient}>
-      <GameList />
+      <QueryClientProvider client={queryClient}>
+        <WelcomeScreen />
       </QueryClientProvider>
 
   )
