@@ -41,9 +41,6 @@ export default function GameCard({ game }: { game: Game }) {
           <Typography variant="body1">
             {'Otro: ' + game.others}
           </Typography>
-          <Typography variant="body1">
-            {'Validación de contenido: ' + game.contentValidation}
-          </Typography>
         </CardContent>
         <CardActions>
           <Button>
