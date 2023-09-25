@@ -1,25 +1,13 @@
-import GameCard from '../GameCard/GameCard'
 import Game from '../types/Game'
+import GameEditor from '../GameEditor/GameEditor'
 import {
     useQuery,
   } from '@tanstack/react-query'
 import axios from 'axios'
-
 import { baseUrl } from '../constants/url'
 
-export function GameList(){
+export function GamesEditor(){
 
-    /**
-     * POSTGAME: we get the games from the backend and send them to the frontend to show them 
-     */
-
-
-
-    /**
-     * GETALLGAMES: Fetch games from the backend and display them on the frontend
-     */
-
-    // Define the getGames function that makes a GET request to the backend
     const getGames = () => axios.get(baseUrl + 'games').then(res => res.data);
 
     // Use React Query's useQuery to make the GET request
@@ -34,7 +22,7 @@ export function GameList(){
     // If data.games contains games, display them using GameCard components
     if (data?.games?.length) {
     return data.games.map((game: Game) => (
-        <GameCard game={game} key={game.name} />
+        <GameEditor game={game} key={game.name} />
     ));
     } else {
     return <p>No se ha encontrado ningún juego.</p>;
