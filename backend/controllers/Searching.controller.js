@@ -41,7 +41,7 @@ module.exports.getGames = async (req, res) => {
                         .map(filteredGame => filteredGame.game)
                         .forEach(game => orderedGames.push(game))
                 }
-                res.json({ status: 'ok', orderedGames })
+                res.json({ status: 'ok', games: orderedGames })
             } else {
                 res.json({ status: 'ok', games })
             }
