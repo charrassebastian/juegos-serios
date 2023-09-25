@@ -1,5 +1,5 @@
 const {saveGame, getGame, updateGame, deleteGame} = require ('./controllers/Game.controller')
-const {getAllGames} = require('./controllers/Searching.controller')
+const {getGames} = require('./controllers/Searching.controller')
 const express = require('express')
 const router = express.Router()
 
@@ -14,6 +14,6 @@ router.delete('/api/game', deleteGame)
 /**
  * Searching.controller routes
  */
-router.get('/api/games', getAllGames)
+router.get('/api/games', getGames)
 
 module.exports.router = router
