@@ -3,14 +3,13 @@ import { GameList } from '../GameList/GameList'
 import axios from 'axios'
 import { baseUrl } from '../constants/url'
 import { useState } from 'react'
+import { Navbar } from '../Navbar/Navbar'
 
 export const WelcomeScreen = () => {
     const getGames = value => axios.get(baseUrl + 'games', { params: { value }}).then(res => res.data);
     const [games, setGames] = useState([])
     const [searchValue, setSearchValue] = useState("")
 
-    // TODO: use a controlled component for the input, based on the searchValue
-    // TODO: send the text of the text field
     const onSearchValueChange = (value) => {
         setSearchValue(value)
     }
@@ -24,51 +23,7 @@ export const WelcomeScreen = () => {
     // If data.games contains games, display them using GameList
     return (
         <>
-            <header>
-                <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-                    <div className="container-fluid">
-                        <a className="navbar-brand" href="#">Juegos Serios</a>
-                        <button
-                            className="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarCollapse"
-                            aria-controls="navbarCollapse"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                        >
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarCollapse">
-                            <ul className="navbar-nav me-auto mb-2 mb-md-0">
-                                <li className="nav-item">
-                                    <a className="nav-link " aria-current="page" href="#">Home</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#features">Features</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">About</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link">Log in</a>
-                                </li>
-                            </ul>
-                            <form className="d-flex" role="search">
-                                <input
-                                    className="form-control me-2"
-                                    type="search"
-                                    placeholder="Search"
-                                    aria-label="Search"
-                                />
-                                <button className="btn btn-outline-success" type="submit">
-                                    Search
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
-            </header>
+            <Navbar />
             <section className="gradient-background vh-100 home">
                 <div className="container col-xxl-8 px-3 px-md5 " >
                     <div className="row flex-lg-row-reverse align-items-center g-5 pt-5">
