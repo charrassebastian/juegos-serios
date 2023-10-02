@@ -27,9 +27,9 @@ export const WelcomeScreen = () => {
             <section className="gradient-background vh-100 home">
                 <div className="container col-xxl-8 px-3 px-md5 " >
                     <div className="row flex-lg-row-reverse align-items-center g-5 pt-5">
-                        {/* <div className="col-10 col-sm-8 col-lg-6">
+                        <div className="col-10 col-sm-8 col-lg-6">
                             <img src="" className="d-block mx-lg-auto img-fluid" alt="" height="200" loading="lazy" />
-                        </div> */}
+                        </div>
                         <div className="col-lg-6 px-3 px-md5">
                             <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 mb-3">Juegos Serios</h1>
                             <br />
@@ -47,7 +47,7 @@ export const WelcomeScreen = () => {
                                 onChange={(e) => onSearchValueChange(e.target.value)}
                             />
                             <button type="button" className="btn btn-light btn-lg px-4" onClick={onSearch}> Buscar </button>
-                            <button type="button" className="btn btn-outline-light btn-lg px-4"> Limpiar</button>
+                            <button type="button" className="btn btn-outline-dark btn-lg px-4"> Limpiar</button>
                         </form>
                     </div>
                 </div>
@@ -59,27 +59,27 @@ export const WelcomeScreen = () => {
                         <div className="row g-4 py-5 row-cols-1 row-cols-lg-3">
                             <div className="col d-flex align-items-start">
 
-                                {/* <div className="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                                <div className="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
                                     <img className="icon" src="./images/easy-to-use.png" alt="Easy to use" height="180" />
-                                </div> */}
+                                </div>
                                 <div>
                                     <h3 className="fs-2 features-h3"> Fácil de usar</h3>
                                     <p className="features-p-2">Estan fácil de usar que hasta tu gato puede usarlo.</p>
                                 </div>
                             </div>
                             <div className="col d-flex align-items-start">
-                                {/* <div className="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                                <div className="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
                                     <img className="icon" src="./images/crown.png" alt="Easy to use" height="180" />
-                                </div> */}
+                                </div>
                                 <div>
                                     <h3 className="fs-2 features-h3">Clientes Elite</h3>
                                     <p className="features-p-2">Gamers de todo el mundo utilizan el motor de busqueda.</p>
                                 </div>
                             </div>
                             <div className="col d-flex align-items-start">
-                                {/* <div className="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                                <div className="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
                                     <img className="icon" src="./images/best-seller.png" alt="Thumb up" height="180" />
-                                </div> */}
+                                </div>
                                 <div>
                                     <h3 className="fs-2 features-h3">Busqueda Garantizada</h3>
                                     <p className="features-p">Encontras lo que buscas.</p>
@@ -92,14 +92,14 @@ export const WelcomeScreen = () => {
             <GameList games={games} />
             <footer className="py-4 gradient-background ">
                 <ul className="nav justify-content-center border-bottom mb-3">
-                    {/* <a className="img-footer" href="./index.html"><img src="./images/mobile-game.png" alt="A mobile game" height="100" /></a> */}
-                    <li className="nav-item"><a href="#" className="nav-link px-4 text-light">Home</a></li>
-                    <li className="nav-item"><a href="#" className="nav-link px-4 text-light">Buscar</a></li>
-                    <li className="nav-item"><a href="#" className="nav-link px-4 text-light">Creado por INSPT-UTN</a></li>
-                    <li className="nav-item"><a href="#" className="nav-link px-4 text-light">Licencias</a></li>
-                    <li className="nav-item"><a href="#" className="nav-link px-4 text-light">Acerca de</a></li>
+                    <a className="img-footer" href="./index.html"><img src="./images/mobile-game.png" alt="A mobile game" height="100" /></a>
+                    <li className="nav-item"><a href="#" className="nav-link px-4 text-dark">Home</a></li>
+                    <li className="nav-item"><a href="#" className="nav-link px-4 text-dark">Buscar</a></li>
+                    <li className="nav-item"><a href="#" className="nav-link px-4 text-dark">Creado por INSPT-UTN</a></li>
+                    <li className="nav-item"><a href="#" className="nav-link px-4 text-dark">Licencias</a></li>
+                    <li className="nav-item"><a href="#" className="nav-link px-4 text-dark">Acerca de</a></li>
                 </ul>
-                <p className="text-center text-light">Juegos Serios © 2023 </p>
+                <p className="text-center text-dark">Juegos Serios © 2023 </p>
             </footer>
         </>
     )
