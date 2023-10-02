@@ -1,6 +1,6 @@
 export function MainSection({ searchValue, onSearchValueChange, onSearch, onClear }: { searchValue: string, onSearchValueChange: (value: any) => void, onSearch: () => void, onClear: () => void }){
     return(
-        <section className="gradient-background home">
+        <section className="gradient-background home vw-100">
             <div className="container col-xxl-8 px-3 px-md5 " >
                 <div className="row flex-lg-row-reverse align-items-center g-5 pt-5">
                     <div className="col-10 col-sm-8 col-lg-6">
@@ -23,7 +23,7 @@ export function MainSection({ searchValue, onSearchValueChange, onSearch, onClea
                             onChange={(e) => onSearchValueChange(e.target.value)}
                         />
                         <button type="button" className="btn btn-light btn-lg px-4" onClick={onSearch}> Buscar </button>
-                        <button type="button" className="btn btn-outline-dark btn-lg px-4" onClick={onClear}> Limpiar</button>
+                        <button type="button" className="btn btn-outline-light btn-lg px-4" onClick={onClear}> Limpiar</button>
                     </form>
                 </div>
             </div>
